@@ -47,4 +47,31 @@ class ServiceTest {
         int validGroup = 932;
         assert(service.saveStudent(validId, validName, validGroup) == 0);
     }
+
+    @Test
+    void saveStudentIdNull() {
+        when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
+        String validId = null;
+        String validName = "Ion";
+        int validGroup = 932;
+        assert(service.saveStudent(validId, validName, validGroup) == 0);
+    }
+
+    @Test
+    void saveStudentGroupLessThen110() {
+        when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
+        String validId = "0";
+        String validName = "Ion";
+        int validGroup = 109;
+        assert(service.saveStudent(validId, validName, validGroup) == 0);
+    }
+
+    @Test
+    void saveStudentGroupLessThen939() {
+        when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
+        String validId = "0";
+        String validName = "Ion";
+        int validGroup = 939;
+        assert(service.saveStudent(validId, validName, validGroup) == 0);
+    }
 }
