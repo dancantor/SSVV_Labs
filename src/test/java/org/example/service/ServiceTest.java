@@ -67,7 +67,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveStudentGroupLessThen939() {
+    void saveStudentGroupGreaterThen939() {
         when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
         String validId = "0";
         String validName = "Ion";
