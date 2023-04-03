@@ -15,7 +15,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class ServiceTest {
+public class ServiceTest {
     private Service service;
     @Mock
     private StudentXMLRepository studentRepo;
@@ -32,7 +32,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveStudentValid() {
+    public void saveStudentValid() {
         when(studentRepo.save(any())).thenReturn(null);
         String validId = "1";
         String validName = "Ion";
@@ -41,7 +41,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveExistingStudent() {
+    public void saveExistingStudent() {
         when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
         String validId = "1";
         String validName = "Ion";
@@ -50,7 +50,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveStudentIdNull() {
+    public void saveStudentIdNull() {
         when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
         String validId = null;
         String validName = "Ion";
@@ -59,7 +59,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveStudentGroupLessThen110() {
+    public void saveStudentGroupLessThen110() {
         when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
         String validId = "0";
         String validName = "Ion";
@@ -77,7 +77,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveAssignmentRepoReturnsNullServiceReturns1() {
+    public void saveAssignmentRepoReturnsNullServiceReturns1() {
         when(temaRepo.save(any())).thenReturn(null);
         String validId = "0";
         String validDescription = "Lab1";
@@ -87,7 +87,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveAssignmentRepoReturnsTemaServiceReturns0() {
+    public void saveAssignmentRepoReturnsTemaServiceReturns0() {
         when(temaRepo.save(any())).thenReturn(new Tema("0", "Lab1", 6, 4));
         String validId = "0";
         String validDescription = "Lab1";
