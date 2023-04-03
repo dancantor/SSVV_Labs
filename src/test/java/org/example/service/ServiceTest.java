@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.domain.Student;
+import org.example.domain.Tema;
 import org.example.repository.NotaXMLRepository;
 import org.example.repository.StudentXMLRepository;
 import org.example.repository.TemaXMLRepository;
@@ -73,5 +74,25 @@ class ServiceTest {
         String validName = "Ion";
         int validGroup = 939;
         assert(service.saveStudent(validId, validName, validGroup) == 0);
+    }
+
+    @Test
+    void saveAssignmentRepoReturnsNullServiceReturns1() {
+        when(temaRepo.save(any())).thenReturn(null);
+        String validId = "0";
+        String validDescription = "Lab1";
+        int validDeadline = 6;
+        int validStartWeek = 4;
+        assert(service.saveTema(validId, validDescription, validDeadline, validStartWeek) == 1);
+    }
+
+    @Test
+    void saveAssignmentRepoReturnsTemaServiceReturns0() {
+        when(temaRepo.save(any())).thenReturn(new Tema("0", "Lab1", 6, 4));
+        String validId = "0";
+        String validDescription = "Lab1";
+        int validDeadline = 6;
+        int validStartWeek = 4;
+        assert(service.saveTema(validId, validDescription, validDeadline, validStartWeek) == 0);
     }
 }
