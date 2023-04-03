@@ -6,17 +6,17 @@ import org.example.domain.Tema;
 import org.example.repository.NotaXMLRepository;
 import org.example.repository.StudentXMLRepository;
 import org.example.repository.TemaXMLRepository;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.stubbing.Answer;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ServiceTest extends TestCase {
+public class ServiceTest {
     private Service service;
     @Mock
     private StudentXMLRepository studentRepo;
@@ -24,8 +24,8 @@ public class ServiceTest extends TestCase {
     private TemaXMLRepository temaRepo;
     @Mock
     private NotaXMLRepository notaRepo;
-    @BeforeEach
-    void initializeData() {
+    @Before
+    public void initializeData() {
         studentRepo = mock(StudentXMLRepository.class);
         temaRepo = mock(TemaXMLRepository.class);
         notaRepo = mock(NotaXMLRepository.class);
@@ -69,7 +69,7 @@ public class ServiceTest extends TestCase {
     }
 
     @Test
-    void saveStudentGroupGreaterThen939() {
+    public void saveStudentGroupGreaterThen939() {
         when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
         String validId = "0";
         String validName = "Ion";
