@@ -1,5 +1,6 @@
 package org.example.service;
 
+import junit.framework.TestCase;
 import org.example.domain.Student;
 import org.example.domain.Tema;
 import org.example.repository.NotaXMLRepository;
@@ -15,7 +16,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ServiceTest {
+public class ServiceTest extends TestCase {
     private Service service;
     @Mock
     private StudentXMLRepository studentRepo;
