@@ -96,4 +96,44 @@ public class ServiceTest {
         int validStartWeek = 4;
         assert(service.saveTema(validId, validDescription, validDeadline, validStartWeek) == 0);
     }
+
+    @Test
+    public void saveAssignmentRepoReturnsNullServiceReturns1IdInvalid() {
+        when(temaRepo.save(any())).thenReturn(null);
+        String invalidId = "";
+        String validDescription = "Lab1";
+        int validDeadline = 6;
+        int validStartWeek = 4;
+        assert(service.saveTema(invalidId, validDescription, validDeadline, validStartWeek) == 0);
+    }
+
+    @Test
+    public void saveAssignmentRepoReturnsNullServiceReturns1DescriptionInvalid() {
+        when(temaRepo.save(any())).thenReturn(null);
+        String validId = "1";
+        String invalidDescription = null;
+        int validDeadline = 6;
+        int validStartWeek = 4;
+        assert(service.saveTema(validId, invalidDescription, validDeadline, validStartWeek) == 0);
+    }
+
+    @Test
+    public void saveAssignmentRepoReturnsNullServiceReturns1DeadlineInvalid() {
+        when(temaRepo.save(any())).thenReturn(null);
+        String validId = "1";
+        String validDescription = "Lab1";
+        int invalidDeadline = 15;
+        int validStartWeek = 4;
+        assert(service.saveTema(validId, validDescription, invalidDeadline, validStartWeek) == 0);
+    }
+
+    @Test
+    public void saveAssignmentRepoReturnsNullServiceReturns1StartDateInvalid() {
+        when(temaRepo.save(any())).thenReturn(null);
+        String validId = "1";
+        String validDescription = "Lab1";
+        int validDeadline = 4;
+        int invalidStartWeek = 8;
+        assert(service.saveTema(validId, validDescription, validDeadline, invalidStartWeek) == 0);
+    }
 }
