@@ -36,7 +36,7 @@ public abstract class AbstractCRUDRepository<ID, E extends HasID<ID>> implements
             if (result == null) {
                 return entity;
             }
-            throw new ValidationException("Data de primire invalida! \n");
+            return null;
         }
         catch (ValidationException ve) {
             System.out.println("Entitatea nu este valida! \n");

@@ -79,7 +79,7 @@ public class ServiceTest {
 
     @Test
     public void saveAssignmentRepoReturnsNullServiceReturns1() {
-        when(temaRepo.save(any())).thenReturn(null);
+        when(temaRepo.save(any())).thenReturn(new Tema("0", "Lab1", 6, 4));
         String validId = "0";
         String validDescription = "Lab1";
         int validDeadline = 6;
@@ -89,7 +89,7 @@ public class ServiceTest {
 
     @Test
     public void saveAssignmentRepoReturnsTemaServiceReturns0() {
-        when(temaRepo.save(any())).thenReturn(new Tema("0", "Lab1", 6, 4));
+        when(temaRepo.save(any())).thenReturn(null);
         String validId = "0";
         String validDescription = "Lab1";
         int validDeadline = 6;
