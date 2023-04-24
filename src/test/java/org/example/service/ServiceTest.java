@@ -34,7 +34,7 @@ public class ServiceTest {
 
     @Test
     public void saveStudentValid() {
-        when(studentRepo.save(any())).thenReturn(null);
+        when(studentRepo.save(any())).thenReturn(new Student("1", "Ion", 932));
         String validId = "1";
         String validName = "Ion";
         int validGroup = 932;
@@ -43,7 +43,7 @@ public class ServiceTest {
 
     @Test
     public void saveExistingStudent() {
-        when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
+        when(studentRepo.save(any())).thenReturn(null);
         String validId = "1";
         String validName = "Ion";
         int validGroup = 932;
@@ -52,7 +52,7 @@ public class ServiceTest {
 
     @Test
     public void saveStudentIdNull() {
-        when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
+        when(studentRepo.save(any())).thenReturn(null);
         String validId = null;
         String validName = "Ion";
         int validGroup = 932;
@@ -61,7 +61,7 @@ public class ServiceTest {
 
     @Test
     public void saveStudentGroupLessThen110() {
-        when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
+        when(studentRepo.save(any())).thenReturn(null);
         String validId = "0";
         String validName = "Ion";
         int validGroup = 109;
@@ -70,7 +70,7 @@ public class ServiceTest {
 
     @Test
     public void saveStudentGroupGreaterThen939() {
-        when(studentRepo.save(any())).thenReturn(new Student("1", "Ana",932));
+        when(studentRepo.save(any())).thenReturn(null);
         String validId = "0";
         String validName = "Ion";
         int validGroup = 939;
