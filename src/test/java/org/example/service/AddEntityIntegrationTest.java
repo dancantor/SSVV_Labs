@@ -14,14 +14,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import java.io.File;
 import java.io.IOException;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class AddEntityIT {
+public class AddEntityIntegrationTest {
     private Service service;
     @Mock
     private StudentXMLRepository studentRepo;
