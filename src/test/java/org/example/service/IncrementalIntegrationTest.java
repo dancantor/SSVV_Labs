@@ -36,7 +36,7 @@ public class IncrementalIntegrationTest {
     }
 
     @Test
-    public void saveStudentValid() {
+    public void saveStudentValidForIntegration() {
         when(mockStudentRepo.save(any())).thenReturn(new Student("1", "Ion", 932));
         String validId = "1";
         String validName = "Ion";
